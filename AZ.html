@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AZ Blue Portal</title>
+  <style>
+    :root {
+      --brand-blue: #003366;
+      --highlight-yellow: #FDB940;
+      --background-light: #f8f9fa;
+      --hero-bg: #1e73be;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--background-light);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .utility-bar {
+      background-color: var(--brand-blue);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      font-size: 14px;
+      flex-wrap: wrap;
+    }
+
+    .utility-bar a {
+      color: white;
+      margin-right: 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .top-bar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 50px;
+      width: auto;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .top-nav {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    .top-nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .primary {
+      background: var(--highlight-yellow);
+      color: var(--brand-blue);
+    }
+
+    .secondary {
+      background: white;
+      color: var(--brand-blue);
+      border: 1px solid var(--brand-blue);
+    }
+
+    .hero {
+      background: url('hero-home-desktop.webp') no-repeat center center;
+      background-size: cover;
+      color: #000;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .hero-heading {
+      font-size: 2.8rem;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .hero-heading .highlight {
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+      background: var(--hero-bg);
+      border-radius: 12px;
+      padding: 40px 20px;
+      color: white;
+    }
+
+    .card {
+      background: transparent;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .split-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 60px 20px;
+      background: #f4f8fc;
+      border-radius: 16px;
+      margin-top: 40px;
+    }
+
+    .split-section img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .split-section .text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    footer {
+      background: #002D72;
+      padding: 40px 20px;
+      color: white;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-grid h4 {
+      margin-bottom: 10px;
+    }
+
+    .footer-grid a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 1024px) {
+      .hero {
+        background-position: center center;
+        background-size: cover;
+        height: auto;
+        padding: 40px 20px;
+      }
+
+      .hero-content {
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-nav {
+        display: none;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .top-nav.active {
+        display: block;
+      }
+
+      .top-nav ul {
+        flex-direction: column;
+        padding-left: 0;
+        margin: 0;
+      }
+
+      .auth-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="utility-bar">
+      <div>
+        <a href="#">Providers</a>
+        <a href="#">Employers</a>
+        <a href="#">Brokers</a>
+        <a href="#">Health Choice</a>
+      </div>
+      <div>
+        <a href="#">Search</a>
+        <a href="#">(800) 232-2345</a>
+        <a href="#">English</a>
+      </div>
+    </div>
+
+    <div class="top-bar">
+      <img src="download.svg" alt="AZ Blue Logo" class="logo" />
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <nav class="top-nav" aria-label="Main Navigation">
+        <ul>
+          <li><a href="#">Find a Plan</a></li>
+          <li><a href="#">For Members</a></li>
+          <li><a href="#">Find Care</a></li>
+          <li><a href="#">Inspire Health</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button class="btn secondary">24/7 Help</button>
+        <button class="btn primary">Login / Register</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-heading">
+        Sign Up For Your<br />
+        <span class="highlight">AZ Blue Portal</span>
+      </h1>
+      <p>Easily access your plan, find care and more.</p>
+      <button class="btn primary">Get Started</button>
+    </div>
+  </section>
+
+  <main>
+    <section class="card-grid">
+      <div class="card">
+        <h3>Individuals and Families</h3>
+        <p>Self-insured and ACA health plans for every budget.</p>
+        <button class="btn primary">Explore Plans</button>
+      </div>
+      <div class="card">
+        <h3>Medicare</h3>
+        <p>Choose from Medicare Advantage or Supplement (Medigap) plans.</p>
+        <button class="btn primary">Explore Plans</button>
+      </div>
+      <div class="card">
+        <h3>Medicaid</h3>
+        <p>Explore Health Choice resources and eligibility.</p>
+        <button class="btn primary">Check Eligibility</button>
+      </div>
+      <div class="card">
+        <h3>Employers</h3>
+        <p>Invest in healthcare plans that benefit your team.</p>
+        <button class="btn primary">Discover Solutions</button>
+      </div>
+    </section>
+
+    <section class="split-section">
+      <div class="text">
+        <h2>Need help? We've got you.</h2>
+        <p>If you have questions about your current plan, our team is here to help.</p>
+        <button class="btn primary">24/7 Help</button>
+        <button class="btn secondary">Call (800) 232-2345</button>
+      </div>
+      <img src="customer_servicre_adj.webp" alt="Customer Service" />
+    </section>
+
+    <section class="card-grid">
+      <div class="card">
+        <h3>Login / Register Your Account</h3>
+        <p>Our portal lets you find all of your insurance information in one place.</p>
+        <button class="btn primary">Get Started</button>
+      </div>
+      <div class="card">
+        <h3>Your ID Card</h3>
+        <p>View or download your medical ID card whenever you need it.</p>
+        <button class="btn primary">Log in</button>
+      </div>
+      <div class="card">
+        <h3>Pay Your Bill</h3>
+        <p>Find your latest bill and make a payment.</p>
+        <button class="btn primary">Log in</button>
+      </div>
+    </section>
+
+    <section class="split-section">
+      <img src="find-a-doctor-homepage-hero.webp" alt="Find Doctor" />
+      <div class="text">
+        <h2>Find a doctor</h2>
+        <p>Search for doctors near you and in your network. Search by location, doctor or hospital name, health condition or specialty.</p>
+        <button class="btn primary">Find a Doctor</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4>Members</h4>
+        <a href="#">My Plan</a>
+        <a href="#">ID Cards</a>
+        <a href="#">Member Resources</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">FAQ</a>
+        <a href="#">Live Chat</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#">About Us</a>
+        <a href="#">Careers</a>
+        <a href="#">News</a>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top: 30px; font-size: 0.9rem;">&copy; 2025 Blue Cross Blue Shield of Arizona. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.top-nav').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
